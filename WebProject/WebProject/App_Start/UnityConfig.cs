@@ -2,15 +2,8 @@ using System;
 using Microsoft.Practices.Unity;
 using Microsoft.Practices.Unity.Configuration;
 using System.Data.Entity;
-using TestProject.DAL;
-using TestProject.Business.Services;
-using TestProject.Business.Services.Impl;
-using TestProject.DAL.Repositories;
-using TestProject.DAL.Repositories.Impl;
-using TestProject.Business.Configurations;
-using TestProject.Business.Configurations.Impl;
-using TestProject.DAL.Uow;
-using TestProject.DAL.Uow.Imple;
+
+using TestProject.Business.Unity;
 
 namespace TestProject.App_Start
 {
@@ -48,20 +41,7 @@ namespace TestProject.App_Start
             // TODO: Register your types here
             // container.RegisterType<IProductRepository, ProductRepository>();            
 
-            // context
-            container.RegisterType<Context>();
-            container.RegisterType<DbContext, Context>();
-            container.RegisterType<IUnitOfWork, UnitOfWork>();
-
-            // services
-            container.RegisterType<ICustomerAndAddressService, CustomerAndAddressService>();
-
-            // repositories
-            container.RegisterType<ICustomerRepository, CustomerRepository>();
-
-            // converter
-            AutoMapperConfiguration.Initialize();            
-            container.RegisterType<IDataConverter, DataConverter>();
+            Bootstrapper.RegisterTypes(container);
         }
     }
 }

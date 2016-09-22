@@ -254,10 +254,6 @@
       <Project>{b372d961-ce43-4d94-a10f-19595a80af4c}</Project>
       <Name>TestProject.Business</Name>
     </ProjectReference>
-    <ProjectReference Include="..\WebProject.DAL\WebProject.DAL.csproj">
-      <Project>{62363ef6-9029-4ae1-983a-f09c77b5174e}</Project>
-      <Name>ErgoleProject.DAL</Name>
-    </ProjectReference>
     <ProjectReference Include="..\WebProject.Domain\WebProject.Domain.csproj">
       <Project>{fd3c2a47-7020-4b11-ae35-127a9cf70b5f}</Project>
       <Name>TestProject.Domain</Name>

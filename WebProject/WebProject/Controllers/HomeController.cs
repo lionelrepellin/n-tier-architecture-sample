@@ -6,9 +6,6 @@ using System.Web.Mvc;
 using TestProject.Business.Configurations.Impl;
 using TestProject.Business.Services;
 using TestProject.Business.Services.Impl;
-using TestProject.DAL;
-using TestProject.DAL.Repositories.Impl;
-using TestProject.DAL.Uow.Imple;
 
 namespace TestProject.Controllers
 {
