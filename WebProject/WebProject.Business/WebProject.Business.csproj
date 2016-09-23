@@ -7,8 +7,8 @@
     <ProjectGuid>{B372D961-CE43-4D94-A10F-19595A80AF4C}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>TestProject.Business</RootNamespace>
-    <AssemblyName>TestProject.Business</AssemblyName>
+    <RootNamespace>WebProject.Business</RootNamespace>
+    <AssemblyName>WebProject.Business</AssemblyName>
     <TargetFrameworkVersion>v4.6</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>

@@ -7,8 +7,8 @@
     <ProjectGuid>{62363EF6-9029-4AE1-983A-F09C77B5174E}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>TestProject.DAL</RootNamespace>
-    <AssemblyName>TestProject.DAL</AssemblyName>
+    <RootNamespace>WebProject.DAL</RootNamespace>
+    <AssemblyName>WebProject.DAL</AssemblyName>
     <TargetFrameworkVersion>v4.6</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
