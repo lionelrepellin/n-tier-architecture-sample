@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
-using TestProject.Business.Services.Data;
+using WebProject.Business.Services.Data;
 
-namespace TestProject.Business.Services
+namespace WebProject.Business.Services
 {
     public interface ICustomerAndAddressService
     {

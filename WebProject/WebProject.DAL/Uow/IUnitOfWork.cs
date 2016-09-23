@@ -1,6 +1,6 @@
 ﻿using System.Data.Entity;
 
-namespace TestProject.DAL.Uow
+namespace WebProject.DAL.Uow
 {
     public interface IUnitOfWork
     {

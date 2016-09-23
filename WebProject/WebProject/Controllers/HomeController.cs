@@ -3,11 +3,11 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
-using TestProject.Business.Configurations.Impl;
-using TestProject.Business.Services;
-using TestProject.Business.Services.Impl;
+using WebProject.Business.Configurations.Impl;
+using WebProject.Business.Services;
+using WebProject.Business.Services.Impl;
 
-namespace TestProject.Controllers
+namespace WebProject.Controllers
 {
     public class HomeController : Controller
     {
@@ -26,9 +26,9 @@ namespace TestProject.Controllers
 
             #region No dependency injection method
 
-            //var context = new ErgoleContext();
-            //var unitOfWork = new UnitOfWork(context);
-            //var customerRepository = new CustomerRepository(context);
+            //var mainContext = new MainContext();
+            //var unitOfWork = new UnitOfWork(mainContext);
+            //var customerRepository = new CustomerRepository(mainContext);
             //var dataConverter = new DataConverter();
 
             //var service = new CustomerAndAddressService(customerRepository, unitOfWork, dataConverter);

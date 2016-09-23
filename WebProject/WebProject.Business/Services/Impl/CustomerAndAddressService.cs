@@ -3,24 +3,26 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using TestProject.Business.Configurations;
-using TestProject.Business.Services.Data;
-using TestProject.DAL.Repositories;
-using TestProject.DAL.Repositories.Criterias;
-using TestProject.DAL.Uow;
-using TestProject.Domain;
+using WebProject.Business.Configurations;
+using WebProject.Business.Services.Data;
+using WebProject.DAL.Repositories;
+using WebProject.DAL.Repositories.Criterias;
+using WebProject.DAL.Uow;
+using WebProject.Domain;
 
-namespace TestProject.Business.Services.Impl
+namespace WebProject.Business.Services.Impl
 {
     public class CustomerAndAddressService : ICustomerAndAddressService
     {
+        private IAddressRepository _addressRepository;
         private ICustomerRepository _customerRepository;
         private IUnitOfWork _unitOfWork;
         private IDataConverter _dataConverter;
 
-        public CustomerAndAddressService(ICustomerRepository customerRepository, IUnitOfWork unitOfWork, IDataConverter dataConverter)
+        public CustomerAndAddressService(ICustomerRepository customerRepository, IAddressRepository addressRepository,  IUnitOfWork unitOfWork, IDataConverter dataConverter)
         {
             _customerRepository = customerRepository;
+            _addressRepository = addressRepository;
             _unitOfWork = unitOfWork;
             _dataConverter = dataConverter;
         }
@@ -46,6 +48,19 @@ namespace TestProject.Business.Services.Impl
             };
             var customers = _customerRepository.FindByCriteria(criteria);
             return _dataConverter.Convert<IEnumerable<Customer>, IEnumerable<CustomerData>>(customers);
+        }
+
+        // it is just a bit of business logic code
+        // only made to show the usage of two repositories in the same service
+        public CustomerData SetNewAddressToCustomer(int customerId, string city)
+        {
+            var customer = _customerRepository.FindById(customerId);
+            var addresses = _addressRepository.FindAddressesByCity(city);
+            if (addresses.Any())
+            {
+                customer.Addresses.Add(addresses.First());
+            }
+            return _dataConverter.Convert<Customer, CustomerData>(customer); ;
         }
 
         public void Add(CustomerData customerdata)

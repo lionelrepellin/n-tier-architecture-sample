@@ -250,22 +250,22 @@
     <Content Include="Views\Shared\_Layout.cshtml" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\WebProject.Business\WebProject.Business.csproj">
-      <Project>{b372d961-ce43-4d94-a10f-19595a80af4c}</Project>
-      <Name>TestProject.Business</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\WebProject.Domain\WebProject.Domain.csproj">
-      <Project>{fd3c2a47-7020-4b11-ae35-127a9cf70b5f}</Project>
-      <Name>TestProject.Domain</Name>
-    </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
     <Content Include="fonts\glyphicons-halflings-regular.ttf" />
     <Content Include="fonts\glyphicons-halflings-regular.eot" />
     <Content Include="packages.config" />
     <None Include="Project_Readme.html" />
     <Content Include="Scripts\jquery-1.10.2.min.map" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\WebProject.Business\WebProject.Business.csproj">
+      <Project>{b372d961-ce43-4d94-a10f-19595a80af4c}</Project>
+      <Name>WebProject.Business</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\WebProject.Domain\WebProject.Domain.csproj">
+      <Project>{fd3c2a47-7020-4b11-ae35-127a9cf70b5f}</Project>
+      <Name>WebProject.Domain</Name>
+    </ProjectReference>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

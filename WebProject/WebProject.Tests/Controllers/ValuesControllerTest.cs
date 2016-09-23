@@ -5,10 +5,10 @@ using System.Net.Http;
 using System.Text;
 using System.Web.Http;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using TestProject;
-using TestProject.Controllers;
+using WebProject;
+using WebProject.Controllers;
 
-namespace TestProject.Tests.Controllers
+namespace WebProject.Tests.Controllers
 {
     [TestClass]
     public class ValuesControllerTest

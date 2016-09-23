@@ -4,13 +4,12 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace TestProject.Business.Configurations
+namespace WebProject.Business.Configurations
 {
     public interface IDataConverter
     {
-        T Convert<T>(object src);
+        T Convert<T>(object source);
 
-        Dest Convert<Src, Dest>(Src src);
+        TDestination Convert<TSource, TDestination>(TSource source);
     }
-
 }

@@ -1,4 +1,4 @@
-namespace TestProject.Areas.HelpPage.ModelDescriptions
+namespace WebProject.Areas.HelpPage.ModelDescriptions
 {
     public class CollectionModelDescription : ModelDescription
     {

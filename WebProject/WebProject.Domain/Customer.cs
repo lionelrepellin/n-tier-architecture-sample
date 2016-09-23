@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace TestProject.Domain
+namespace WebProject.Domain
 {
     public class Customer
     {
@@ -14,5 +14,10 @@ namespace TestProject.Domain
         public string Lastname { get; set; }
 
         public ICollection<Address> Addresses { get; set; }
+
+        public Customer()
+        {
+            Addresses = new HashSet<Address>();
+        }
     }
 }

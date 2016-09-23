@@ -3,22 +3,22 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using TestProject.Domain;
-using TestProject.Business.Services.Data;
+using WebProject.Domain;
+using WebProject.Business.Services.Data;
 using AutoMapper;
 
-namespace TestProject.Business.Configurations.Impl
+namespace WebProject.Business.Configurations.Impl
 {
     public class DataConverter : IDataConverter
     {
-        public T Convert<T>(object src)
+        public T Convert<T>(object source)
         {
-            return Mapper.Map<T>(src);
+            return Mapper.Map<T>(source);
         }
 
-        public TDest Convert<TSrc, TDest>(TSrc src)
+        public TDestination Convert<TSource, TDestination>(TSource source)
         {
-            return Mapper.Map<TSrc, TDest>(src);
+            return Mapper.Map<TSource, TDestination>(source);
         }
     }
 }

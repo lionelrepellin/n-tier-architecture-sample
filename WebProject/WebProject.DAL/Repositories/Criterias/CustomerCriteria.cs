@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace TestProject.DAL.Repositories.Criterias
+namespace WebProject.DAL.Repositories.Criterias
 {
     public class CustomerCriteria
     {

@@ -1,10 +1,10 @@
 ﻿using Moq;
 using NUnit.Framework;
 using System.Web.Mvc;
-using TestProject.Business.Services;
-using TestProject.Controllers;
+using WebProject.Business.Services;
+using WebProject.Controllers;
 
-namespace TestProject.Tests.Controllers
+namespace WebProject.Tests.Controllers
 {
     [TestFixture]
     public class HomeControllerTest

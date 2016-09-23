@@ -4,28 +4,26 @@ using System.Data.Entity;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using TestProject.DAL.Configurations;
-using TestProject.DAL.Seed;
-using TestProject.Domain;
+using WebProject.DAL.Configurations;
+using WebProject.DAL.Seed;
+using WebProject.Domain;
 
-namespace TestProject.DAL
+namespace WebProject.DAL
 {
-    public class Context : DbContext
+    public class MainContext : DbContext
     {
         public DbSet<Customer> Customers { get; set; }
         public DbSet<Address> Addresses { get; set; }
 
-        static Context()
+        static MainContext()
         {
-            Database.SetInitializer<Context>(new ContextInitializer());
+            Database.SetInitializer<MainContext>(new MainContextInitializer());
         }
-
-
-        public Context()
+        
+        public MainContext()
          : base("MyDatabaseConnection")
         {
             Configuration.LazyLoadingEnabled = false;
-
 #if DEBUG
             Database.Log = (log) => System.Diagnostics.Debug.WriteLine(log);
 #endif

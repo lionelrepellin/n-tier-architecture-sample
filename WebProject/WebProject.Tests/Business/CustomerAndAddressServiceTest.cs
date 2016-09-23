@@ -5,24 +5,26 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using TestProject.Business.Configurations;
-using TestProject.Business.Configurations.Impl;
-using TestProject.Business.Services.Data;
-using TestProject.Business.Services.Impl;
-using TestProject.DAL.Repositories;
-using TestProject.DAL.Repositories.Criterias;
-using TestProject.DAL.Uow;
-using TestProject.Domain;
+using WebProject.Business.Configurations;
+using WebProject.Business.Configurations.Impl;
+using WebProject.Business.Services.Data;
+using WebProject.Business.Services.Impl;
+using WebProject.DAL.Repositories;
+using WebProject.DAL.Repositories.Criterias;
+using WebProject.DAL.Uow;
+using WebProject.Domain;
 
-namespace TestProject.Tests.Business
+namespace WebProject.Tests.Business
 {
     [TestFixture]
     public class CustomerAndAddressServiceTest
     {
-        private IEnumerable<Customer> _customersResult;        
+        private IEnumerable<Customer> _customersResult;
+        private IEnumerable<Address> _addressesResult;
         private DataConverter _dataConverter;
         private Mock<IUnitOfWork> _unitOfWorkMock;
         private Mock<ICustomerRepository> _customerRepositoryMock;
+        private Mock<IAddressRepository> _addressRepositoryMock;
         private CustomerAndAddressService _customerAndAddressService;
         
 
@@ -43,11 +45,30 @@ namespace TestProject.Tests.Business
                 new Customer { Id = 3, Firstname = "Loulou", Lastname = "Duck" }
             };
 
+            _addressesResult = new List<Address>
+            {
+                new Address
+                {
+                    Street = "rue sans issue",
+                    City = "PANAM",
+                    Country = "France",
+                    ZipCode = "75000"
+                },
+                new Address
+                {
+                    Street = "voie du sens interdit",
+                    City = "Panam",
+                    Country = "France",
+                    ZipCode = "92000"
+                }
+            };
+
             _customerRepositoryMock = new Mock<ICustomerRepository>();
+            _addressRepositoryMock = new Mock<IAddressRepository>();
             _unitOfWorkMock = new Mock<IUnitOfWork>();
             _dataConverter = new DataConverter();
 
-            _customerAndAddressService = new CustomerAndAddressService(_customerRepositoryMock.Object, _unitOfWorkMock.Object, _dataConverter);
+            _customerAndAddressService = new CustomerAndAddressService(_customerRepositoryMock.Object, _addressRepositoryMock.Object, _unitOfWorkMock.Object, _dataConverter);
         }
 
         [Test]
@@ -110,6 +131,28 @@ namespace TestProject.Tests.Business
             });
 
             _unitOfWorkMock.VerifyAll();
+        }
+
+        [Test]
+        public void SetNewAddressToCustomer_GivenACustomerIdAndACity_ItReturnsACustomerWithACorrespondingAddress()
+        {
+            const int customerId = 1;
+            const string city = "paNam";
+
+            _customerRepositoryMock
+                .Setup(m => m.FindById(customerId))
+                .Returns(_customersResult.Single(c => c.Id == customerId));
+
+            _addressRepositoryMock
+                .Setup(m => m.FindAddressesByCity(city))
+                .Returns(_addressesResult);
+
+            var customerData = _customerAndAddressService.SetNewAddressToCustomer(customerId, city);
+
+            _customerRepositoryMock.VerifyAll();
+            _addressRepositoryMock.VerifyAll();
+            
+            Assert.IsTrue(customerData.Addresses.Single().City.ToLower() == city.ToLower());
         }
     }
 }

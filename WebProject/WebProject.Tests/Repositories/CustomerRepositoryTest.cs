@@ -4,24 +4,23 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using TestProject.DAL;
-using TestProject.DAL.Repositories.Criterias;
-using TestProject.DAL.Repositories.Impl;
-using TestProject.Domain;
+using WebProject.DAL;
+using WebProject.DAL.Repositories.Criterias;
+using WebProject.DAL.Repositories.Impl;
+using WebProject.Domain;
 
-namespace TestProject.Tests.Repositories
+namespace WebProject.Tests.Repositories
 {
 
     [TestFixture]
-    public class CustomerRepositoryTest
+    public class CustomerRepositoryTest : BaseRepositoryTest
     {
         private CustomerRepository _customerRepository;
 
         [SetUp]
         public void BeforeEach()
         {
-            var context = new Context();
-            _customerRepository = new CustomerRepository(context);
+            _customerRepository = new CustomerRepository(MainContext);
         }
 
         [Test]
@@ -44,15 +43,26 @@ namespace TestProject.Tests.Repositories
         [Test]
         public void FindByCriteria_GivenCriteria_ItReturnsTheRightCustomer()
         {
+            // arrange
+            MainContext.Customers.Add(new Customer
+            {
+                Firstname = "Lionel",
+                Lastname = "Repellin",                
+            });
+
+            MainContext.SaveChanges();
+
             var criteria = new CustomerCriteria
             {
                 Firstname = "Lionel",
                 Lastname = "Repellin"
             };
 
+            // act
             var customers = _customerRepository.FindByCriteria(criteria);
             var customer = customers.First();
-                        
+                  
+            // assert      
             Assert.That(customer, Has.Property("Firstname").EqualTo(criteria.Firstname));
             Assert.That(customer, Has.Property("Lastname").EqualTo(criteria.Lastname));
         }

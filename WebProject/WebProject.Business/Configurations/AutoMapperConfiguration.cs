@@ -4,10 +4,10 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using TestProject.Business.Services.Data;
-using TestProject.Domain;
+using WebProject.Business.Services.Data;
+using WebProject.Domain;
 
-namespace TestProject.Business.Configurations
+namespace WebProject.Business.Configurations
 {
     public class AutoMapperConfiguration
     {

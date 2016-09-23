@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace TestProject.Business.Services.Data
+namespace WebProject.Business.Services.Data
 {
     public class AddressData
     {

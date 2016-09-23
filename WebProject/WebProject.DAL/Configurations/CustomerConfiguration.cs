@@ -4,9 +4,9 @@ using System.Data.Entity.ModelConfiguration;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using TestProject.Domain;
+using WebProject.Domain;
 
-namespace TestProject.DAL.Configurations
+namespace WebProject.DAL.Configurations
 {
     public class CustomerConfiguration : EntityTypeConfiguration<Customer>
     {

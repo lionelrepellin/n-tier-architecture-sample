@@ -46,7 +46,9 @@
       <Private>True</Private>
     </Reference>
     <Reference Include="Microsoft.CSharp" />
-    <Reference Include="Microsoft.VisualStudio.QualityTools.UnitTestFramework, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL" />
+    <Reference Include="Microsoft.VisualStudio.QualityTools.UnitTestFramework, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <Private>False</Private>
+    </Reference>
     <Reference Include="Mono.Cecil, Version=0.9.6.0, Culture=neutral, PublicKeyToken=0738eb9f132ed756, processorArchitecture=MSIL">
       <HintPath>..\packages\NUnit3TestAdapter.3.4.1\lib\Mono.Cecil.dll</HintPath>
       <Private>True</Private>
@@ -141,10 +143,12 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Business\CustomerAndAddressServiceTest.cs" />
+    <Compile Include="Repositories\BaseRepositoryTest.cs" />
     <Compile Include="Repositories\CustomerRepositoryTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Controllers\HomeControllerTest.cs" />
     <Compile Include="Controllers\ValuesControllerTest.cs" />
+    <Compile Include="Repositories\AddressRepositoryTest.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="App.config" />
@@ -155,22 +159,21 @@
   <ItemGroup>
     <ProjectReference Include="..\WebProject.Business\WebProject.Business.csproj">
       <Project>{b372d961-ce43-4d94-a10f-19595a80af4c}</Project>
-      <Name>ErgoleProject.Business</Name>
+      <Name>WebProject.Business</Name>
     </ProjectReference>
     <ProjectReference Include="..\WebProject.DAL\WebProject.DAL.csproj">
       <Project>{62363ef6-9029-4ae1-983a-f09c77b5174e}</Project>
-      <Name>ErgoleProject.DAL</Name>
+      <Name>WebProject.DAL</Name>
     </ProjectReference>
     <ProjectReference Include="..\WebProject.Domain\WebProject.Domain.csproj">
       <Project>{fd3c2a47-7020-4b11-ae35-127a9cf70b5f}</Project>
-      <Name>ErgoleProject.Domain</Name>
+      <Name>WebProject.Domain</Name>
     </ProjectReference>
     <ProjectReference Include="..\WebProject\WebProject.csproj">
-      <Project>{19A97A52-38FF-44AB-B0D0-D65440335D80}</Project>
-      <Name>TestProject</Name>
+      <Project>{19a97a52-38ff-44ab-b0d0-d65440335d80}</Project>
+      <Name>WebProject</Name>
     </ProjectReference>
   </ItemGroup>
-  <ItemGroup />
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it.
        Other similar extension points exist, see Microsoft.Common.targets.

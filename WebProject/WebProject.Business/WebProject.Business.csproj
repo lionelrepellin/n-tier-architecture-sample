@@ -80,18 +80,18 @@
     <Compile Include="Unity\Bootstrapper.cs" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="App.config" />
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
     <ProjectReference Include="..\WebProject.DAL\WebProject.DAL.csproj">
       <Project>{62363ef6-9029-4ae1-983a-f09c77b5174e}</Project>
-      <Name>TestProject.DAL</Name>
+      <Name>WebProject.DAL</Name>
     </ProjectReference>
     <ProjectReference Include="..\WebProject.Domain\WebProject.Domain.csproj">
       <Project>{fd3c2a47-7020-4b11-ae35-127a9cf70b5f}</Project>
-      <Name>TestProject.Domain</Name>
+      <Name>WebProject.Domain</Name>
     </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="App.config" />
-    <None Include="packages.config" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

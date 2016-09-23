@@ -1,8 +1,8 @@
 ﻿using System.Collections.Generic;
-using TestProject.DAL.Repositories.Criterias;
-using TestProject.Domain;
+using WebProject.DAL.Repositories.Criterias;
+using WebProject.Domain;
 
-namespace TestProject.DAL.Repositories
+namespace WebProject.DAL.Repositories
 {
     public interface ICustomerRepository
     {

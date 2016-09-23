@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace TestProject.DAL.Uow.Imple
+namespace WebProject.DAL.Uow.Imple
 {
     public class UnitOfWork : IUnitOfWork
     {

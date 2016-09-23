@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace TestProject.Domain
+namespace WebProject.Domain
 {
     public class Address
     {

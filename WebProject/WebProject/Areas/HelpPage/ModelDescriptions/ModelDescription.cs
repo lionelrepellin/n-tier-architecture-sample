@@ -1,6 +1,6 @@
 using System;
 
-namespace TestProject.Areas.HelpPage.ModelDescriptions
+namespace WebProject.Areas.HelpPage.ModelDescriptions
 {
     /// <summary>
     /// Describes a type model.

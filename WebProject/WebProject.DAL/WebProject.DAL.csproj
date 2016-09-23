@@ -51,20 +51,21 @@
   <ItemGroup>
     <Compile Include="Configurations\AddressConfiguration.cs" />
     <Compile Include="Configurations\CustomerConfiguration.cs" />
-    <Compile Include="Context.cs" />
+    <Compile Include="MainContext.cs" />
+    <Compile Include="Repositories\IAddressRepository.cs" />
+    <Compile Include="Repositories\Impl\AddressRepository.cs" />
     <Compile Include="Uow\IUnitOfWork.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repositories\Criterias\CustomerCriteria.cs" />
     <Compile Include="Repositories\Impl\CustomerRepository.cs" />
     <Compile Include="Repositories\ICustomerRepository.cs" />
-    <Compile Include="Seed\ContextInitializer.cs" />
+    <Compile Include="Seed\MainContextInitializer.cs" />
     <Compile Include="Uow\Impl\UnitOfWork.cs" />
   </ItemGroup>
-  <ItemGroup />
   <ItemGroup>
     <ProjectReference Include="..\WebProject.Domain\WebProject.Domain.csproj">
       <Project>{fd3c2a47-7020-4b11-ae35-127a9cf70b5f}</Project>
-      <Name>TestProject.Domain</Name>
+      <Name>WebProject.Domain</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>

@@ -4,37 +4,36 @@ using System.Data.Entity;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using TestProject.DAL.Repositories.Criterias;
-using TestProject.Domain;
+using WebProject.DAL.Repositories.Criterias;
+using WebProject.Domain;
 
-namespace TestProject.DAL.Repositories.Impl
+namespace WebProject.DAL.Repositories.Impl
 {
     public class CustomerRepository : ICustomerRepository
     {
-        private Context _context;
+        private MainContext _mainContext;
 
-        public CustomerRepository(Context context)
+        public CustomerRepository(MainContext mainContext)
         {
-            _context = context;
+            _mainContext = mainContext;
         }
 
         public IEnumerable<Customer> FindAll()
         {
-            return _context.Customers
+            return _mainContext.Customers
                             .Include(c => c.Addresses)
                             .ToList();
         }
 
         public Customer FindById(int id)
         {
-            return _context.Customers
-                            .Include(c => c.Addresses)
+            return _mainContext.Customers
                             .Single(c => c.Id == id);
         }
 
         public IEnumerable<Customer> FindByCriteria(CustomerCriteria criteria)
         {
-            return _context.Customers
+            return _mainContext.Customers
                             .Where(c => c.Firstname == criteria.Firstname && c.Lastname == criteria.Lastname)
                             .ToList();
         }

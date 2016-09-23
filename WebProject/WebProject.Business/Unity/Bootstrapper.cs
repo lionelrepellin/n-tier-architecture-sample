@@ -5,25 +5,25 @@ using System.Data.Entity;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using TestProject.Business.Configurations;
-using TestProject.Business.Configurations.Impl;
-using TestProject.Business.Services;
-using TestProject.Business.Services.Impl;
-using TestProject.DAL;
-using TestProject.DAL.Repositories;
-using TestProject.DAL.Repositories.Impl;
-using TestProject.DAL.Uow;
-using TestProject.DAL.Uow.Imple;
+using WebProject.Business.Configurations;
+using WebProject.Business.Configurations.Impl;
+using WebProject.Business.Services;
+using WebProject.Business.Services.Impl;
+using WebProject.DAL;
+using WebProject.DAL.Repositories;
+using WebProject.DAL.Repositories.Impl;
+using WebProject.DAL.Uow;
+using WebProject.DAL.Uow.Imple;
 
-namespace TestProject.Business.Unity
+namespace WebProject.Business.Unity
 {
     public static class Bootstrapper
     {
         public static void RegisterTypes(IUnityContainer container)
         {
             // context
-            container.RegisterType<Context>();
-            container.RegisterType<DbContext, Context>();
+            container.RegisterType<MainContext>();
+            container.RegisterType<DbContext, MainContext>();
             container.RegisterType<IUnitOfWork, UnitOfWork>();
 
             // services
@@ -31,6 +31,7 @@ namespace TestProject.Business.Unity
 
             // repositories
             container.RegisterType<ICustomerRepository, CustomerRepository>();
+            container.RegisterType<IAddressRepository, AddressRepository>();
 
             // converter
             AutoMapperConfiguration.Initialize();
