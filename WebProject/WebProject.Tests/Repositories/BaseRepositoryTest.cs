@@ -26,6 +26,8 @@ namespace WebProject.Tests.Repositories
         public void Rollback()
         {
             _transaction.Rollback();
+            _transaction.Dispose();
+            MainContext.Dispose();
         }
     }
 }
